@@ -5,7 +5,7 @@ export interface ArtistInterface {
     image: string | null;
 }
 
-export type ArtistInterfaceWithoutId = Omit<ArtistInterface, 'id'>
+export type ArtistInterfaceWithoutId = Omit<ArtistInterface, '_id'>
 
 export interface  AlbumInterface {
     _id: string;
@@ -16,3 +16,12 @@ export interface  AlbumInterface {
 }
 
 export type AlbumInterfaceWithoutId = Omit<AlbumInterface, '_id'>
+
+export interface  TrackInterface {
+    _id: string;
+    album: AlbumInterface;
+    name: string;
+    time: string;
+}
+
+export type TrackInterfaceWithoutId = Omit<TrackInterface, '_id'>

@@ -1,6 +1,7 @@
 import express from "express";
 import Artist from "../models/Artist";
 import {imagesUpload} from "../multer";
+import {ArtistInterfaceWithoutId} from "../types";
 
 const artistsRouter = express.Router();
 
@@ -14,7 +15,7 @@ res.send(artists);
 });
 
 artistsRouter.post('/',imagesUpload.single('image'), async (req, res, next) => {
-    const artistsData = {
+    const artistsData: ArtistInterfaceWithoutId = {
         name: req.body.name,
         description: req.body.description,
         image: req.file ? 'images' + req.file.filename : null,
