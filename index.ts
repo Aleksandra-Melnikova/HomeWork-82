@@ -1,6 +1,7 @@
 import express from "express";
 import * as mongoose from "mongoose";
 import artistsRouter from "./routers/artists";
+import albumsRouter from "./routers/albums";
 
 
 const app = express();
@@ -11,7 +12,7 @@ app.use(express.static('public'));
 
 
 app.use('/artists', artistsRouter);
-// app.use('/albums', albumsRouter);
+app.use('/albums', albumsRouter);
 // app.use('/tracks', tracksRouter);
 
 
