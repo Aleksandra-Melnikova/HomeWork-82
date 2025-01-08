@@ -6,12 +6,13 @@ const TrackSchema = new mongoose.Schema({
         ref: "Album",
         required: [true,'Album is required'],
     },
-    name: {
-        type: String,
-        required: true,
+    track:{
+        type: Schema.Types.ObjectId,
+        ref: "Track",
+        required: [true,'Track is required'],
     },
-    time: {
-        type: String,
+    datetime: {
+        type: Date,
         required: true,
     },
 });
