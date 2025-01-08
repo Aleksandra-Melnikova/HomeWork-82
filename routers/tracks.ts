@@ -46,7 +46,7 @@ tracksRouter.get('/', async (req, res, next) => {
 tracksRouter.post('/', imagesUpload.single('image'), async (req, res, next) => {
     if (req.body.album) {
         const artist = await Album.findById(req.body.album);
-        if (!artist) res.status(404).send('Not Found album');
+        if (!artist) res.status(404).send({error:'Not Found album'});
     }
 
     const newTrack:  TrackInterfaceWithoutId  = {

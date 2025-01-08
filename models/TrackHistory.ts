@@ -6,13 +6,13 @@ const TrackHistorySchema = new mongoose.Schema({
         ref: "User",
         required: [true,'User is required'],
     },
-    name: {
+    track: {
         type: String,
         required: true,
     },
-    time: {
+    datetime: {
         type: String,
-        required: true,
+        default:()=>new Date().toISOString(),
     },
 });
 

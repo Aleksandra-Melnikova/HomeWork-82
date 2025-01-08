@@ -20,7 +20,6 @@ usersRouter.post('/', async (req, res, next) => {
         }
         next(error);
     }
-
 });
 
 usersRouter.post('/sessions', async (req, res) => {
@@ -39,24 +38,5 @@ usersRouter.post('/sessions', async (req, res) => {
     res.send({message: 'Username and password correct!', user});
 });
 
-usersRouter.post('/track_history', async (req, res) => {
-    const token = req.get('Authorization');
-    if (!token) {
-        res.status(401).send({error: 'No token present'});
-        return
-    }
-
-    const user = await User.findOne({token});
-    if (!user) {
-        res.status(401).send({error: 'Unauthorized!'});
-        return
-    }
-
-    res.send({
-        message: 'Secret message',
-        username: user.username
-    });
-
-});
 
 export default usersRouter;

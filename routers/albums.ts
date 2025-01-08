@@ -30,14 +30,14 @@ albumsRouter.get('/:id', async (req, res, next) => {
     const id = req.params.id;
 
     if (!req.params.id) {
-        res.status(404).send('Not Found');
+        res.status(404).send({error:"Not found"});
     }
 
     try {
         const album = await Album.findById(id).populate('artist');
 
         if (!album) {
-            res.status(404).send("Album not found");
+            res.status(404).send({error:"Album not found"});
         }
             res.send(album);
 
@@ -50,7 +50,7 @@ albumsRouter.get('/:id', async (req, res, next) => {
 albumsRouter.post('/', imagesUpload.single('image'), async (req, res, next) => {
     if (req.body.artist) {
         const artist = await Artist.findById(req.body.artist);
-        if (!artist) res.status(404).send('Not Found artist');
+        if (!artist) res.status(404).send({error:"Not found artist"});
     }
 
     const newAlbum:  AlbumInterfaceWithoutId  = {
