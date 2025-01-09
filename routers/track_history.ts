@@ -37,23 +37,4 @@ trackHistoryRouter.post('/', async (req, res, next) => {
 });
 export default trackHistoryRouter;
 
-// albumsRouter.post('/', imagesUpload.single('image'), async (req, res, next) => {
-//
-//
-//     const newAlbum:  AlbumInterfaceWithoutId  = {
-//         artist: req.body.artist,
-//         title: req.body.title,
-//         year: req.body.year,
-//         image: req.file ? 'images' + req.file.filename : null,
-//     };
-//
-//     try {
-//         const album = new Album(newAlbum);
-//         await album.save();
-//         res.send(album);
-//     }
-//
-//     catch (e) {
-//         next(e);
-//     }
-// });
+
